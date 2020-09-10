@@ -1,0 +1,199 @@
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\author{Yujung Hwang} % Your name
+\date{September 3, 2020} % Today's date or a custom date
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 1
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\upshape \mdseries 
+\begin{center}
+DUE DATE : 2020.9.9. time 11:00pm  \\
+submit your solution and code files on Blackboard page.
+\end{center}
+
+\normalsize
+\textbf{Question 1. Analytical solution for the cake-eating problem with no income flows} \\
+An agent starts life with an asset $a_1$ and live for T periods. Saving is allowed. Flow utility function is the CRRA utility function. Derive an equation for the optimal consumption plan. (Derive equation (2) in slide Lecture 1, page 14) \\
+
+\textbf{Question 2. Understanding numerical errors} \\
+\textit{Note : this question was intended to use an exogenous grid for asset. you may compare solutions using exogenous grids and an endogenous grid in the Bonus question below.} \\
+In this question, you are asked to solve for the policy function (consumption plan) $c_t(a_t)$ for the cake-eating problem with no income flow using various solution methods. \\
+The flow utility function is CRRA.
+\begin{gather}
+u(c) = \frac{c^{1-\gamma}}{(1-\gamma)}
+\end{gather}
+The structural parameter values are as follows : \\
+\begin{table}[H]
+\centering
+\begin{tabular}{c l c}
+\hline
+Parameter & Description & Value \\
+\hline
+$T$ & Lifetime & 40 \\
+$r$ & interest rate & 0.03 \\
+$\beta$ & time discount & 0.95 \\
+$\gamma$ & CRRA parameter & 1.5 \\
+$a_0$ & initial asset & 1 \\
+$\underline{c}$ & minimum consumption & $10^-5$ \\
+\hline
+\end{tabular}
+\end{table}
+When you set an asset grid, use age-specific grid and use an unequal grid point generated from log transformation and use the $N_A=20$ gridpoints. \\
+When you need to interpolate any function, use "linear" interpolation.\\
+(a) Compute $c_t(a_t)$ using value function. \\
+(b) Compute $c_t(a_t)$ using Euler equation without linear transformation of marginal utility function. \\
+(c) Compute $c_t(a_t)$ using Euler equation with linear transformation of marginal utility function. \\
+
+Show in one graph the true analytical solution for $t=20$ derived in Question 1 and the solution (a) - (c) for age t=20. Discuss the differences. \\
+
+\textbf{Question 3. Simulating consumption and asset path using the solution} \\
+Using the policy function solution (c) computed in Question 2, simulate the consumption and saving decision and plot them in the same graph. \\
+
+
+\vspace{0.2in}
+\textbf{[Bonus Question] You are not required to do this, but if you successfully solve this question, you get extra bonus points [+5 pts in your final grade].} \\
+Compare the computation time to solve Question 2 using exogenous grid points (graph (a), (b), (c) respectively) and using endogenous grid point. Add a policy function $c_t(a_t)$ computed from endogenous grid point method and discuss the differences from solutions for Question 2. \\
+
+
+
+\end{document}
