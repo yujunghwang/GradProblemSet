@@ -1,0 +1,227 @@
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\definecolor{olivegreen}{cmyk}{0.28,0,0.5,0.68}
+\usepackage{listings}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{olivegreen},
+    %otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE,fminbnd,optim,optimize,fzero},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{olivegreen},
+}
+
+\author{Yujung G. Hwang} % Your name
+\date{\today} % Today's date or a custom date
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 4 Solution
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\upshape \mdseries 
+\normalsize
+
+\textbf{Question 1.} \\
+(a) 
+\begin{eqnarray*}
+E \left[ \Delta u_{it} (\Delta u_{it-1} + \Delta u_{it} + \Delta u_{it+1}) \right] &=& E \left[ (\zeta_{it} + m_{it}) ( \zeta_{it-1} + \zeta_{it} + \zeta_{it+1} - m_{it-1} + m_{it+1} ) \right] = \sigma_{\zeta}^2 \\
+E \left[ \Delta u_{it} \Delta u_{it-1} \right] &=& E \left[ (\zeta_{it} + m_{it} - m_{it-1}) (\zeta_{it-1} + m_{it-1} - m_{it-2}) \right] = -\sigma_{m}^2 
+\end{eqnarray*}
+(b)
+Note that $\alpha_{it}$ is a random variable.
+\begin{eqnarray*}
+E \left[ \Delta u_{it} | L_{it}=1, L_{it-1}=1 \right] &=& \sigma_{\zeta \eta} E \left[ \frac{\phi(\alpha_{it})}{1-\Phi(\alpha_{it})} \right] \\
+E \left[ \Delta u_{it} (\Delta u_{it-1} + \Delta u_{it} + \Delta u_{it+1}) | L_{it-2} =1, L_{it-1}=1, L_{it}=1, L_{it+1}=1  \right] &=& \sigma_{\zeta}^2 + \sigma_{\zeta \eta}^2 E\left[ \frac{\phi (\alpha_{it})}{1-\Phi (\alpha_{it})} \alpha_{it}  \right] \\
+E \left[ \Delta u_{it}^2 | L_{it}=1, L_{it-1}=1 \right] &=&  \sigma_{\zeta}^2 + \sigma_{\zeta \eta}^2 E\left[ \frac{\phi (\alpha_{it})}{1-\Phi (\alpha_{it})} \alpha_{it} \right] + 2 \sigma_m^2  \end{eqnarray*}
+To see this, 
+\begin{eqnarray*}
+E \left[ \Delta u_{it} | L_{it}=1, L_{it-1}=1 \right] &=& E\left[ E \left[ \zeta_{it} + m_{it} - m_{it-1} | \eta_{it} \mbox{>} \alpha_{it}, \eta_{it-1} \mbox{>} \alpha_{it-1} \right] \right] \\
+&=& E\left[ E \left[ \zeta_{it} | \eta_{it} \mbox{>} \alpha_{it} \right] \right] \\
+&=& \sigma_{\zeta \eta} E \left[ \frac{\phi(\alpha_{it})}{1-\Phi(\alpha_{it})} \right] (\because \mbox{truncated bivariate normal distribution formula})
+\end{eqnarray*}
+\begin{eqnarray*}
+&& E \left[ \Delta u_{it} (\Delta u_{it-1} + \Delta u_{it} + \Delta u_{it+1}) | L_{it-2} =1, L_{it-1}=1, L_{it}=1, L_{it+1}=1  \right] \\
+&& = E\left[ E \left[ \zeta_{it}^2 | \eta_{it} \mbox{>} \alpha_{it} \right] \right] \\
+&& = \sigma_{\zeta}^2 E\left[ E \left[ \tilde{\zeta}_{it}^2 | \eta_{it} \mbox{>} \alpha_{it} \right] \right] \quad  (\because \tilde{\zeta}_{it} \equiv \zeta_{it} / \sigma_{\zeta}) \\
+&& = \sigma_{\zeta}^2 E\left[ E \left[ E \left[ \tilde{\zeta}_{it}^2 | \eta_{it} \right] | \eta_{it} \mbox{>} \alpha_{it} \right] \right] \\
+&& = \sigma_{\zeta}^2 E \left[ E \left[ Var(\tilde{\zeta}_{it} | \eta_{it}) + E \left[ \tilde{\zeta}_{it} | \eta_{it} \right]^2  | \eta_{it} \mbox{>} \alpha_{it} \right] \right] \\
+&& = \sigma_{\zeta}^2 E\left[ E \left[ 1 - \rho_{\zeta \eta}^2 +  \rho_{\zeta \eta}^2 \eta_{it}^2 | \eta_{it} \mbox{>} \alpha_{it} \right] \right]  \\
+&& = \sigma_{\zeta}^2 \left( 1 - \rho_{\zeta \eta}^2 + \rho_{\zeta \eta}^2 E\left[ E \left[ \eta_{it}^2 | \eta_{it} \mbox{>} \alpha_{it}  \right] \right]  \right) \\
+&& = \sigma_{\zeta}^2 ( 1 - \rho_{\zeta \eta}^2 + \rho_{\zeta \eta}^2  (  E\left[ \alpha_{it} \frac{\phi(\alpha_{it})}{1-\Phi(\alpha_{it})} \right] + 1) ) \\
+&& = \sigma_{\zeta}^2 ( 1 + \rho_{\zeta \eta}^2 E\left[ \alpha_{it} \frac{\phi(\alpha_{it})}{1 - \Phi(\alpha_{it}) } \right] )
+\end{eqnarray*}
+\begin{eqnarray*}
+&& E \left[ \Delta u_{it}^2 | L_{it}=1, L_{it-1}=1 \right] \\
+&& = E\left[ E \left[ (\zeta_{it} + m_{it} - m_{it-1})^2 | \eta_{it} \mbox{>} \alpha_{it}, \eta_{it-1} \mbox{>} \alpha_{it-1} \right] \right] \\
+&& = E\left[ E \left[ \zeta_{it}^2 | \eta_{it} \mbox{>} \alpha_{it} \right] \right] + 2 \sigma_m^2 \\
+&& = \sigma_{\zeta}^2 ( 1 + \rho_{\zeta \eta}^2 E\left[ \alpha_{it} \frac{\phi(\alpha_{it})}{1 - \Phi(\alpha_{it}) } \right]  ) + 2 \sigma_m^2
+\end{eqnarray*}
+
+
+\vspace{0.2in}
+\textbf{Question 2.} \\
+(a) \\
+\begin{lstlisting}
+  workeq <- glm(work ~ age + age2 + factor(educ) + noveliv, family = binomial(link = "probit"), data = data)
+  # (a)
+  alphahat <- -cbind(rep(1,nobs),data$age,data$age^2,(data$educ=="College Graduate"),
+                     (data$educ=="Postgraduate"),(data$educ=="Some College"),
+                     data$noveliv)%*%workeq$coefficients
+  lambdahat <- dnorm(alphahat)/(1-pnorm(alphahat))
+\end{lstlisting}
+(b) 
+\begin{gather}
+log w_{it} - log w_{it-1} = \Delta Z_{it}' \beta + \zeta_{it} + m_{it} + m_{it-1}
+\end{gather}
+\begin{lstlisting}
+reg1  <- lm(d1lnwage ~ d1age2 + lambdahat)
+# compute residual and find uhat
+duhat <- d1lnwage - reg1$coefficients[1] - reg1$coefficients[2]*d1age2
+\end{lstlisting}
+(c)
+\begin{lstlisting}
+> paramest
+[1] 0.03119798 0.03159257 0.01941181
+> stderr
+[1] 0.0010169239 0.0125732414 0.0006523193
+\end{lstlisting}
+
+\end{document}

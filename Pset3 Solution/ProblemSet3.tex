@@ -1,0 +1,204 @@
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\definecolor{olivegreen}{cmyk}{0.28,0,0.5,0.68}
+\usepackage{listings}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{olivegreen},
+    %otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE,fminbnd,optim,optimize,fzero},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{olivegreen},
+}
+
+\author{Yujung G. Hwang} % Your name
+\date{\today} % Today's date or a custom date
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 3
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\begin{center}
+DUE DATE : 2020.9.23. time 11:00pm \\
+submit your solution and code files on Blackboard page.
+\end{center}
+
+\upshape \mdseries 
+\normalsize
+Download the dataset Pset3Data.csv to solve this problem set. The file Pset3Data.csv includes a balanced panel of 3000 individuals, including the personal identifier id, age ranging from 1 to 10, consumption, income, and asset. \\
+(Note : Here you have a balanced panel because this is a simple exercise. When working with real data, if you have unbalanced panel, drop the corresponding missing observations in the simulated data, before you compute the simulated moments.) \\
+
+\vspace{0.2in}
+\textbf{Question 1. Estimate the unknown structural parameters using the provided data} \\
+In this question, you are asked to estimate the structural parameter $(\beta, \gamma)$. Use the following external parameters for this exercise. Use the asset grid generated from log spacing. \\
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c L{5cm} c}
+\hline
+Parameter & Description & Value \\
+\hline
+$N_y$ & number of Income Grid & 3 \\
+normBnd & truncation of normal distribution (truncation at (-normBnd*std, normBnd*std)) & 3 \\
+$\rho$ & AR(1) process coefficient & 0.4 \\
+$\sigma_{\epsilon}$ & SD of shock & 1 \\
+$r$ & interest rate & 0.03 \\
+$N_A$ & number of asset grids & 3 \\
+minCons & minimum consumption & $10^-5$ \\
+$a_0$ & initial asset & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+(a) Explain what moments/auxiliary model you will use to estimate the parameters and explain in words how the moments/auxiliary model help identifying each parameter.\\
+(b) Report how much time it takes to evaluate one criterion function in your computer. (In R, you can use proc.time() to measure execution time). \\
+(c) Estimate the parameters using the diagonal weighting (that is, using the variance of moment estimates only. do not use covariances). \\
+(d) Report the standard error of parameter estimates.\\
+(e) Visually show the sensitivity measures and discuss how each moment/statistic identifies each parameter. \\
+(f) Assess the model fit (consumption, asset path over life-cycle) using  your estimated parameter in (c). \\
+
+
+\vspace{0.2in}
+\textbf{[Bonus Question.]} You don't have to solve this question, but you will receive +5 in total score if you successfully complete this question. \\
+Pretend you do not know the income process parameters. Estimate the income process parameter using the provided data. Use the estimated income process parameters to estimate the other structural parameters. Report the standard error computed by doing bootstrap, which takes into account of the sampling error in the income process estimation. Discuss the differences from Question 1.\\
+
+
+\end{document}

@@ -162,7 +162,7 @@ weightMat <- solve(weightMat)
 # (b)
 # report time
 ptm <- proc.time()
-getCriterionFunction(c(0.98,1.5),WeightMatrix=weightMat)
+getCriterionFunction(c(0.96,1.9),WeightMatrix=weightMat)
 proc.time() - ptm
 
 
@@ -175,10 +175,12 @@ ub <- c(0.99,2.5)
 #ub <- c(0.99,9)
 
 # set environment of getCriterionFunction to GlobalEnv
-oout <- optim(par=c(0.98,1.5),fn=getCriterionFunction,WeightMatrix=weightMat,lower=lb,upper=ub,control=list(maxit=100),
+oout <- optim(par=c(0.96,1.9),fn=getCriterionFunction,WeightMatrix=weightMat,lower=lb,upper=ub,control=list(maxit=100),
                         method="L-BFGS-B")
 # print out estimate
 print(oout)
+
+save.image("Pset3Sol200917.RData")
 
 # (d) Report the standard error
 dMoment <- jacobian(findMomentVec,oout$par) 

@@ -1,0 +1,236 @@
+
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\definecolor{olivegreen}{cmyk}{0.28,0,0.5,0.68}
+\usepackage{listings}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{olivegreen},
+    %otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE,fminbnd,optim,optimize,fzero},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{olivegreen},
+}
+
+\author{Yujung Hwang} % Your name
+\date{\today} % Today's date or a custom date
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 4
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\begin{center}
+DUE DATE : 2020.9.30 time 11:00pm \\
+submit your solution and code files on Blackboard page.
+\end{center}
+
+\upshape \mdseries 
+\normalsize
+
+Consider the following income process. Log wage depends on observable characteristics $Z_{it}$ and the unexplained component $u_{it}$. The unexplained income component $u_{it}$ is composed of permanent component $p_t$ which follows a random walk process, and a measurement error in reported log wage, $m_{it}$, which follows an i.i.d. normal distribution.
+\begin{eqnarray}
+log w_{it} &=& Z_{it}'\beta + u_{it} \\
+u_{it} &=& p_{it} + m_{it}, \quad m_{it} \sim N(0,\sigma_m^2) \\
+p_{it} &=& p_{it-1} + \zeta_{it}, \quad \zeta_{it} \sim N(0,\sigma_{\zeta}^2) 
+\end{eqnarray}
+\vspace{0.2in}
+\textbf{Question 1. Income Process Moment Equation} \\
+Derive moment equations to estimate the following income process parameters. \\
+(a) Assume there is no selection into work. so $P_{it} =1$ for $\forall i, t$. Derive the moment equations to estimate the income process parameters $\sigma_{\zeta}^2, \sigma_{m}^2$. \\
+(b) Assume there is selection into work. Set up the following auxiliary labor participation equation. The idiosyncratic preference for work $\eta_{it}$ follows a joint normal distribution with permanent component shock $\zeta_{it}$. Derive the moment equations to identify the income process parameters $\sigma_{\zeta}^2, \sigma_m^2$.
+\begin{gather}
+P(L_{it} =1) = P(L_{it}^*\mbox{>}0) = P(X_{it}'\gamma + \eta_{it} \mbox{>} 0) = P(\eta_{it} \mbox{>} \alpha_{it} \equiv -X_{it}'\gamma) \\
+\left(
+\begin{array}{c}
+\zeta_{it} \\
+\eta_{it}
+\end{array}
+\right) \sim
+N(0, 
+\left[
+\begin{array}{c c}
+\sigma_{\zeta}^2 & \sigma_{\zeta \eta} \\
+\sigma_{\zeta \eta} & 1
+\end{array}
+\right]
+)
+\end{gather}
+Hint : You can use the formula for truncated bivariate standard normal distribution. That is, 
+\begin{gather}
+\left( 
+\begin{array}{c}
+X1 \\
+X2
+\end{array}
+\right) \sim N(0, \left[ \begin{array}{c c}
+1 & \rho \\
+\rho & 1
+\end{array} \right] )
+\end{gather}
+then 
+\begin{gather}
+Var (X1 | X2) = 1-\rho^2 \\
+E (X1| X2) = \rho X2 \\
+E (X2^2 | X2 \mbox{>} c) = c\frac{\phi(c)}{(1-\Phi(c))} +1.
+\end{gather}
+
+\vspace{0.2in}
+\vspace{0.2in}
+\textbf{Question 2. Estimate Income Process Using Nonlinear Least Squares} \\
+Download the dataset Pset4data.csv for this question. The dataset includes a balanced panel of 3000 individuals, including id, age, education, work status, instrumental variable for work, log wage. \\
+Use the following participation equation.
+\begin{gather}
+P(L_{it}=1)  = P(\Pi_{it} \gamma + \eta_{it} \mbox{>} 0) 
+\end{gather}
+$\Pi_{it} = \{ \mbox{Age}, \mbox{Age}^2, \mbox{i.Educ (categorical)}, \mbox{noveliv} \}$.\\
+The observables for log wage includes
+$Z_{it} =\{ \mbox{Age}, \mbox{Age}^2, \mbox{i.Educ (categorical)}  \}$.\\
+
+(a) Estimate the work participation probit regression model. Estimate the inverse mill's ratio, $\lambda(\alpha_{it})$. Report the relevant section in your code here.  \\
+(b) Write down a regression equation to estimate the unexplained income growth $\Delta u_{it} = \zeta_{it} + m_{it} - m_{it-1}$. Report your code executing the regression. \\
+(c) Using the estimated unexplained income growth from (b), estimate the income process parameters $\sigma_{\zeta}^2, \sigma_{\zeta \eta}, \sigma_m^2$ using nonlinear least squares. Report the standard error by bootstrapping the whole estimation process 100 times.  \\
+
+
+\vspace{0.3in}
+\textbf{[Bonus Question, +5 pt]}. Compute the standard error for the estimate in (c) using the asymptotic variance formula of two-step M estimator.\\
+
+
+\end{document}
