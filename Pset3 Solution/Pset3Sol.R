@@ -170,9 +170,6 @@ proc.time() - ptm
 lb <- c(0.90, 1)
 ub <- c(0.99,2.5)
 
-# more generous bounds
-#lb <- c(0.4,1.1)
-#ub <- c(0.99,9)
 
 # set environment of getCriterionFunction to GlobalEnv
 oout <- optim(par=c(0.96,1.9),fn=getCriterionFunction,WeightMatrix=weightMat,lower=lb,upper=ub,control=list(maxit=100),
