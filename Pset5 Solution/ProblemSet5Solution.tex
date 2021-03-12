@@ -1,0 +1,211 @@
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\definecolor{olivegreen}{cmyk}{0.28,0,0.5,0.68}
+\usepackage{listings}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{olivegreen},
+    %otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE,fminbnd,optim,optimize,fzero,stdEr},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{olivegreen},
+}
+
+\author{Yujung G. Hwang} % Your name
+\date{\today} % Today's date or a custom date
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 5 Solution
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\upshape \mdseries 
+\normalsize
+
+\textbf{Question 1.} \\
+(a) \\
+\begin{lstlisting}
+> coef(oout)  # estimate
+[1] 0.3080911 5.1336746
+> stdEr(oout) # standard error
+[1] 0.009924786 0.127096105
+\end{lstlisting}
+
+(b) \\
+\begin{lstlisting}
+> coef(oout)  # estimate
+[1] 0.3044062 5.0667203
+> stdEr(oout) # standard error
+[1] 0.01604319 0.07813442
+\end{lstlisting}
+
+(c) \\
+\begin{lstlisting}
+> coef(oout)  # estimate
+[1] 0.3089259 5.2111210
+> stdEr(oout) # standard error
+[1] 0.01601892 0.07811093
+\end{lstlisting}
+
+\vspace{0.2in}
+\textbf{Question 2.} \\
+By taking the derivative w.r.t. $\theta$,
+\begin{eqnarray}
+0 = \sum_n \sum_s \frac{1}{ \sum_{s'=1}^{S} \pi_{s'} \Pi_{t=1}^{T} \mathcal{L}_{ns't} (\theta)  } ( \sum_{t'} \pi_{s'} \Pi_{t \neq t'}  \mathcal{L}_{ns't}(\theta) ) \frac{\partial \mathcal{L}_{ns't}}{\partial \theta} \label{eq.foc}
+\end{eqnarray}
+Note that 
+\begin{gather}
+\frac{\partial log \mathcal{L}_{ns't}}{\partial \theta} = \frac{1}{\mathcal{L}_{ns't}} \frac{\partial L_{ns't}}{\partial \theta} \label{eq.trick}
+\end{gather}
+Pluging equation \ref{eq.trick} into \ref{eq.foc}, we obtain
+\begin{gather}
+0=\sum_n \sum_s \color{red} \underbrace{ \frac{\pi_s \Pi_{t=1}^{T} \mathcal{L}_{nst} (\theta)}{ \sum_{s'=1}^{S} \pi_{s'} \Pi_{t=1}^{T} \mathcal{L}_{ns't} (\theta)  } }_{ = q_{ns} \mbox{prob of ind n of being type s} } \color{black} \left( \frac{\sum_{t'} \partial ln \mathcal{L}_{nst'} }{\partial \theta} \right) \label{eq.foc}
+\end{gather} 
+
+\vspace{0.2in}
+\textbf{Question 3.}\\
+\begin{lstlisting}
+> coef(oout)  # estimate
+[1] 0.09489552 4.03155725
+> stdEr(oout) # standard error
+[1] 0.001865697 0.014965900
+\end{lstlisting}
+
+\end{document}

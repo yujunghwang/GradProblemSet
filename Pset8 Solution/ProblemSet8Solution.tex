@@ -1,0 +1,224 @@
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+\definecolor{olivegreen}{cmyk}{0.28,0,0.5,0.68}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\usepackage{listings}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{olivegreen},
+    %otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE,fminbnd,optim,optimize,fzero,maxLik,stdEr},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{olivegreen},
+}
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 8 Solution
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\textbf{Question 1.} 
+\begin{gather}
+U_{i0} = log\left(  exp\left( \frac{(log (y + i) - \beta)}{\sigma_{\epsilon} } \right) + exp\left(  \frac{log y}{\sigma_{\epsilon} }\right)  \right) + \gamma
+\end{gather}
+
+\textbf{Question 2.} 
+(a)  \\
+FOC for $s_{ij}$ gives
+\begin{gather}
+\frac{\lambda_{ij}}{s_{ij}} = \frac{(1-\lambda_{ij})}{(1-s_{ij})} 
+\end{gather}
+That is,
+\begin{gather}
+\lambda_{ij} = s_{ij}
+\end{gather}
+
+(b) \\
+The probability for i and j to work can be computed from a couple's problem. The private consumption share $s_{ij}$ from a couple's problem was computed in (a).\\
+The expected utility for i can be computed as a weighted sum of i's utility, where the weights are the probability vector for i and j's work.\\
+\begin{gather}
+U_{i}^{ij} = (log ( \lambda_{ij}(y+ i)) - \beta )*Prob(P_i=1,P_j=0) + log ( \lambda_{ij}(y+ j))*Prob(P_i=0,P_j=1)  \\
++  (log(\lambda_{ij}(y+ i + j)) - \beta)*Prob(P_i=1,P_j=1) + (log ( \lambda_{ij} y))*Prob(P_i=0, P_j =0)  
+\end{gather}
+
+The probability for i and j to work can be computed using the property of Gumbel distribution. 
+For notation, I write $U_{ij}(P_i,P_j)$ to denote the couple's utility conditional on i and j's work status $P_i, P_j$.\\
+The probability of i and j to work can be computed as follows : \\
+\begin{gather}
+	P(P_i=x,P_j=y) = \frac{exp \left( \frac{ U_{ij} (P_i=x,P_j=y) }{\sigma_{\epsilon}} \right)  }{  \sum_{(P_i,P_j)} exp\left( \frac{U_{ij}(P_i,P_j) }{\sigma_{\epsilon} } \right) }
+\end{gather}
+
+
+
+\vspace{0.2in}
+\textbf{Question 3.}\\
+ij component of lambda matrix is a Pareto weight for man of type i married to woman type j. ij component of supplyMen(lambda) is the measure of man of type i married to type j woman. 
+\begin{lstlisting}
+> print(lambda) ### pareto weight
+          [,1]      [,2]      [,3]
+[1,] 0.5080414 0.4208015 0.3402642
+[2,] 0.5834254 0.4982149 0.4130069
+[3,] 0.6469040 0.5726133 0.4862121
+> print(supplyMen(lambda)) ### marriage matching function
+           [,1]       [,2]       [,3]
+[1,] 0.08580019 0.08579804 0.08151608
+[2,] 0.08477972 0.08602242 0.08214554
+[3,] 0.08228699 0.08537034 0.08217204
+> print((measure_i - apply(supplyMen(lambda),1,sum))/measure_i ) ## prob of single men of each type
+[1] 0.2406571 0.2411570 0.2505119
+\end{lstlisting}
+
+\textbf{Question 4.} \\
+\begin{lstlisting}
+> print(lambda) ### pareto weight
+          [,1]      [,2]      [,3]
+[1,] 0.5037705 0.4140749 0.3371335
+[2,] 0.5706512 0.4959575 0.4187586
+[3,] 0.6186938 0.5608903 0.4678336
+> print(supplyMen(lambda)) ### marriage matching function
+           [,1]       [,2]       [,3]
+[1,] 0.08762314 0.08639028 0.08310592
+[2,] 0.08857347 0.09248115 0.09123446
+[3,] 0.09056671 0.09725560 0.09064914
+> print((measure_i - apply(supplyMen(lambda),1,sum))/measure_i ) ## prob of single men of each type
+[1] 0.2286420 0.1831328 0.1645856
+\end{lstlisting}
+The value of single of man got lower due to higher income tax rate when single. Therefore, the bargaining weight for men of all types got lower. Being single is not good anymore, so the proportion of single got also lower, and this is more so for higher type men earning higher wage.
+
+\end{document}

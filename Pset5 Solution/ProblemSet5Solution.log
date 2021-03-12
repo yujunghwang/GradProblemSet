@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  1 OCT 2020 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 OCT 2020 09:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ProblemSet4Solution.tex
-(./ProblemSet4Solution.tex
+**ProblemSet5Solution.tex
+(./ProblemSet5Solution.tex
 LaTeX2e <2018-12-01>
 (/usr/local/texlive/2019/texmf-dist/tex/latex/extsizes/extarticle.cls
 Document Class: extarticle 1996/10/08 v1.0 Non Standard LaTeX document class
@@ -1523,8 +1523,12 @@ File: lstlang3.sty 2019/02/27 1.8b listings language file
 LaTeX Warning: Unused global option(s):
     [paper=a4,fontsize=13pt].
 
-(./ProblemSet4Solution.aux)
-\openout1 = `ProblemSet4Solution.aux'.
+(./ProblemSet5Solution.aux
+
+LaTeX Warning: Label `eq.foc' multiply defined.
+
+)
+\openout1 = `ProblemSet5Solution.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
 LaTeX Font Info:    ... okay on input line 148.
@@ -1541,8 +1545,7 @@ LaTeX Font Info:    ... okay on input line 148.
 LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 148.
 LaTeX Font Info:    Try loading font information for FML+futm on input line 148
 .
-
-(/usr/local/texlive/2019/texmf-dist/tex/latex/fourier/fmlfutm.fd
+ (/usr/local/texlive/2019/texmf-dist/tex/latex/fourier/fmlfutm.fd
 File: fmlfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futm.
 )
 LaTeX Font Info:    ... okay on input line 148.
@@ -1633,9 +1636,9 @@ LaTeX Info: Redefining \ref on input line 148.
 LaTeX Info: Redefining \pageref on input line 148.
 LaTeX Info: Redefining \nameref on input line 148.
 
-(./ProblemSet4Solution.out) (./ProblemSet4Solution.out)
+(./ProblemSet5Solution.out) (./ProblemSet5Solution.out)
 \@outlinefile=\write4
-\openout4 = `ProblemSet4Solution.out'.
+\openout4 = `ProblemSet5Solution.out'.
 
 \c@mv@tabular=\count365
 \c@mv@boldtabular=\count366
@@ -1764,41 +1767,49 @@ LaTeX Font Info:    Font shape `TS1/LinuxLibertineT-TLF/m/n' will be
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
 (Font)              scaled to size 10.0pt on input line 162.
 
-Overfull \hbox (26.64168pt too wide) in alignment at lines 170--173
- [][][] []
+Underfull \hbox (badness 10000) in paragraph at lines 162--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+
  []
 
 [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 200--202
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
- []
-
-
-Overfull \hbox (113.45091pt too wide) in paragraph at lines 203--204
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
- (./ProblemSet4Solution.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 227.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 227.
-Package rerunfilecheck Info: File `ProblemSet4Solution.out' has not changed.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 211.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 211.
+ (./ProblemSet5Solution.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 211.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 211.
+Package rerunfilecheck Info: File `ProblemSet5Solution.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 227.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 211.
  ) 
 Here is how much of TeX's memory you used:
- 37355 strings out of 492616
- 721705 string characters out of 6129482
- 997994 words of memory out of 5000000
- 40638 multiletter control sequences out of 15000+600000
- 655310 words of font info for 136 fonts, out of 8000000 for 9000
+ 37359 strings out of 492616
+ 721760 string characters out of 6129482
+ 994018 words of memory out of 5000000
+ 40625 multiletter control sequences out of 15000+600000
+ 659543 words of font info for 149 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,76p,421b,1809s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,17n,76p,421b,1772s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/libertine/lbtn_d6jdyt.enc
 }{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}
 {/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{
@@ -1808,18 +1819,17 @@ fb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/libertine/LinLibertin
 eT.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/libertine/LinLibe
 rtineTB.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/e
-ufm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler
-/eufm7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/eule
-r/eurm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/eu
-ler/eurm7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/e
-uler/eusm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
-/symbols/msam10.pfb>
-Output written on ProblemSet4Solution.pdf (2 pages, 246228 bytes).
+msy7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/
+euex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/eule
+r/eufm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/eu
+ler/eufm7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/e
+uler/eurm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts
+/euler/eurm7.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/fourier
+/fourier-mcl.pfb>
+Output written on ProblemSet5Solution.pdf (2 pages, 227533 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 78 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 26 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

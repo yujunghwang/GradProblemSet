@@ -1,0 +1,255 @@
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\definecolor{olivegreen}{cmyk}{0.28,0,0.5,0.68}
+\usepackage{listings}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{olivegreen},
+    %otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE,fminbnd,optim,optimize,fzero},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{olivegreen},
+}
+
+\author{Yujung Hwang} % Your name
+\date{\today} % Today's date or a custom date
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 5
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\begin{center}
+DUE DATE : 2020.10.7. time 11:00pm \\
+submit your solution and code files on Blackboard page.
+\end{center}
+
+\upshape \mdseries 
+\normalsize
+
+Download Pset5DataQ1.csv to solve Question 1. The data includes a balanced panel of 500 buses observed for 20 periods. The data includes bus mileage x ranging from 0 to 9, and a replacement history d. \\
+The data will be used to estimate Rust (1987) bus engine problem. The model was simplified by assuming a deterministic mileage change. When the engine is replaced, the next period mileage changes to 0. When the engine is not replaced, the next period mileage increases by 1 deterministically until hitting the maximum mileage M. That is,
+\begin{eqnarray*}
+& x_{it} = x_{it-1} + 1 \quad & \mbox{ if } \quad x_{it-1} \mbox{<} M \\
+& x_{it} = x_{it-1} \quad & \mbox{ if } \quad x_{it-1} = M \\
+\end{eqnarray*}
+The per-period maintenance cost depends on the bus mileage $x_{it}$ and equals to $\theta_1 x_{it}$. If the engine is replaced, it incurs the fixed cost $\theta_2$. The flow payoff formula is as follows : 
+\begin{gather}
+u(x_{it}, j_{it}) = -\theta_1 x_{it} - \theta_2 1(j_{it}=1)
+\end{gather}
+Apart from the information above, set the external parameters as follows. Assume you know the time discount parameter $\beta$.
+\begin{table}[H]
+\centering
+\begin{tabular}{c L{5cm} c}
+\hline
+Parameter & Description & Value \\
+\hline
+$\beta$ & time discount & 0.95 \\
+M & maximum bus mileage & 9 \\
+$\gamma$ & Euler constant & 0.5772 \\
+N & number of buses & 500 \\
+T & number of periods per bus & 20 \\
+\hline
+\end{tabular}
+\end{table}
+\textbf{Question 1. [Rust (1987) Bus Engine Replacement, fully-observable state space]} \\
+(a) Estimate the parameters using the Rust NFXP algorithm ( full-solution method) and report the standard errors. \\
+
+(b) Estimate the parameters using the Aguirregabiria and Mira 1-step NPL estimator using the Hotz and Miller inversion. Report the standard errors. \\
+
+(c) Estimate the parameters using the Aguirregabiria and Mira 2-step NPL estimator using the Hotz and Miller inversion. Report the standard erros. \\
+
+
+\vspace{0.2in}
+\textbf{Question 2.} Derive the equation (16) in Lecture 5 (the first order condition of maximum likelihood function). 
+\begin{gather*}
+\underset{\theta, \{\pi_k\} }{max} \quad log L = \sum_n  log \left[ \sum_{s=1}^{S} \left( \pi_s \Pi_{t=1}^{T} \mathcal{L}_{nst} (\theta) \right) \right]
+\end{gather*}
+first-order condition for $\theta$ becomes
+\begin{gather}
+0=\sum_n \sum_s \color{red} \underbrace{ \frac{\pi_s \Pi_{t=1}^{T} \mathcal{L}_{nst} (\theta)}{ \sum_{s'=1}^{S} \pi_{s'} \Pi_{t=1}^{T} \mathcal{L}_{ns't} (\theta)  } }_{ = q_{ns} \mbox{prob of ind n of being type s} } \color{black} \left( \frac{\sum_{t'} \partial ln \mathcal{L}_{nst'} }{\partial \theta} \right) \label{eq.foc}
+\end{gather}
+
+
+\vspace{0.2in}
+\textbf{Question 3. [Extension of Rust (1987) Bus Engine Replacement, including fixed unobservable state variable]} \\
+
+Download Pset5DataQ3.csv to solve Question 1. The data includes a balanced panel of 5000 buses observed for 50 periods. The data includes bus mileage x ranging from 0 to 7, and a replacement history d. \\
+
+The transition rule for mileage x is same as in Question 1. That is, an increment of 1 unit until hitting the threshold M=7 takes place every period unless the bus engine is replaced. When the bus engine is replaced, the next period bus mileage becomes 0. \\
+
+The flow utility now includes the unobservable state $s_i$. Every bus has an unobservable fixed characteristic $s_i \in \{1, 2\}$. The bus of type $s_i =2$ incurs higher maintenance cost given each mileage $x_{it}$. The bus type $s_i$ is not observable.  
+\begin{gather}
+u(x_{it}, j_{it}) = -\theta_1 x_{it} s_i - \theta_2 1(j_{it}=1)
+\end{gather}
+Set the external parameters as follows. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c L{5cm} c}
+\hline
+Parameter & Description & Value \\
+\hline
+$\beta$ & time discount & 0.95 \\
+M & maximum bus mileage & 7 \\
+$\gamma$ & Euler constant & 0.5772 \\
+N & number of buses & 5000 \\
+T & number of periods per bus & 50 \\
+S & number of unobserved type & 2 \\
+tol & EM algorithm tolerance & $10^-3$ \\
+\hline
+\end{tabular}
+\end{table}
+
+Estimate the parameters using Arcidiacono and Jones (2003) 's EM algorithm in two-steps. \textbf{Report the standard errors computed from the second stage ML estimation.} \\
+
+
+\vspace{0.2in}
+\textbf{[Bonus Question 1, +5pt]} \indent If you complete this bonus question successfully, you will receive +5 points for total grade in this course. \\
+Bootstrap Rust NFXP estimator, AM's 1-step and 2-step NPL estimators in Question 1 for 100 times. Compute the standard errors of your estimate and compare the standard errors with the ones found in Question 1, using the asymptotic variance formula. Discuss the differences. \\
+
+\vspace{0.2in}
+\textbf{[Bonus Question 2, +5pt]} \indent If you complete this bonus question successfully, you will receive +5 points for total grade in this course. \\
+Bootstrap Arcidiacono and Jones (2003) estimator in Question 3 for 100 times. Compute the standard errors of your estimate and compare this standard error with the one found in Question 3. Discuss the differences.\\
+
+
+
+
+\end{document}

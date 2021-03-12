@@ -1,0 +1,179 @@
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 8
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\upshape \mdseries 
+\begin{center}
+DUE DATE : 2020.11.4. time 11:00pm \\
+submit your solution and code files on Blackboard page.
+\end{center}
+
+\textit{Note : I thank Professor Andrew Shephard for kindly sharing his problem set for this class. These questions came from his lecture material.} \\
+
+\indent Suppose there are three types of men (I=3) and three types of women (J=3), with measures as given by the population vectors $\mathcal{M}=\mathcal{F}=[1/3,1/3,1/3]$. The wage of each type of man (woman) is given by $w_i = i$ ($w_j =j$). All types have the non-labour income $y=1$. Single men have the preferences
+\begin{gather}
+U_i (c, P_i) = log ~c - \beta P_i + \epsilon_{p_i},
+\end{gather}
+where $c=y+w_i P_i$ is consumption, $P_i$ is an employment indicator, and $\epsilon_{P_i} \sim Gumbel (0, \sigma_{\epsilon})$ is a state-specific error attached to the time-allocation alternatives. The preferences for single women are defined symmetrically.\\
+
+\textbf{Question 1.} What is the expected utility of a single type-i man? (The expectation is over the realisation of the state specific errors.) \\
+\textit{(Note : don't forget the scale parameter $\sigma_{\epsilon}$, which may not be necessarily 1.)} \\
+
+
+\textbf{Question 2.} Consider a type-ij marriage pairing. Within marriage, suppose that i) consumption is priovate, ii) the state-specific errors are public goods and vary with the joint allocation $(P_i, P_j)$ with $\epsilon_{P_i, P_j} \sim Gumbel (0, \sigma_{\epsilon})$, and iii) decisions are made efficiently, as in the collective model. Finally, let $\lambda_{ij}$ denote the weight on male utility in the household problem, and $1-\lambda_{ij}$ denote the weight on female utility. These assumptions imply that the household solves
+\begin{gather}
+\underset{P_i, P_j, s_{ij}}{max} \quad \{ \lambda_{ij} \times [ log [s_{ij} \cdot c] - \beta P_i ] + (1-\lambda_{ij}) \times [ log [(1-s_{ij}) \cdot c]  - \beta P_j ] + \epsilon_{P_i, P_j}  \}
+\end{gather}
+where $s_{ij}$ is the endogenous consumption share for the man, and the household budget constraint is given by $c=2y + w_i P_i + w_j P_j$. \\
+
+(a) Determine the male consumption share $s_{ij}$ given the joint allocation $(P_i, P_j)$. \\
+
+(b) What is the expected utility of a type-i man in a type-ij marriage pairing ? (Agian, the expectation is over the realisation of the state specific errors) \\
+
+\textbf{Question 3.} Suppose that men and women match in a frictionless marriage market. Matching occurs prior to the realisation of the state-specific time allocation shocks, such that the expected values calculated in (1) and (2) above respectively correspond to the economic value of singlehood and marriage. As in Choo and Siow (2006), assume that a man g of type-i has additiev preference heterogeneity $\theta_{ij}^{i,g}$ over the type of his spouse, $j = 0, \cdots, J$, as given by $\theta_{ij}^{i,g} \sim Gumbel(0, \sigma_{\theta})$, where $j=0$ indicates the singel state. The same spousal preference heterogeneity structure exists for women. Assume that $\beta=0.8, \sigma_{\epsilon} = 0.4, \sigma_{\theta} = 0.7$. Compute the equilibrium of the marriage market. What is the equilibrium matrix of Pareto weights $\lambda$ ? What is the equilibrium marriage matching function ? What is the proportion of single men within each type? \\
+
+\textbf{Question 4.} The government decides to the tax labour income of single men at the constant marginal tax rate $\tau = 0.5$. How does this change the equilibrium distribution of Pareto ewights and the equilibrium marriage matching function ? What is the proportion of single men within each type? Discuss the differences from your answer from Question 3.
+
+
+
+\end{document}

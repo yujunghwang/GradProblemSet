@@ -1,0 +1,224 @@
+\documentclass[paper=a4, fontsize=13pt]{extarticle} % A4 paper and 11pt font size
+\usepackage{longtable} % Allows tables to span multiple pages (this package must be called before hyperref)
+\usepackage{natbib}
+\bibliographystyle{chicago}
+\renewcommand{\familydefault}{\rmdefault}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage{fourier} % Use the Adobe Utopia font for the document - comment this line to return to the LaTeX default
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm,tikz} % Math packages
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{subfigure}
+\usepackage{here}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{wasysym}
+\usepackage[center]{caption}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newtheorem{proposition}{Proposition}
+\newtheorem{mydef}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{thm}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{ass}{Assumption}
+\newtheorem{nota}{Notation}
+\usepackage{fullpage}
+\onehalfspacing
+\allowdisplaybreaks
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\btz}{\begin{tikzpicture}}
+\newcommand{\etz}{\end{tikzpicture}}
+\usetikzlibrary{snakes}
+
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=0mm}
+
+\usepackage{pdflscape}
+
+\usepackage{booktabs}
+\usepackage{adjustbox}
+\usepackage{libertine}% Linux Libertine, may favourite text font
+\usepackage[euler-digits]{eulervm}% A pretty math font
+\usepackage{dcolumn} % Align on the decimal point of numbers in tabular columns
+     \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{xhfill}
+\newcommand{\ditto}[1][.4pt]{\xrfill{#1}~\textquotedbl~\xrfill{#1}}
+\usepackage{threeparttable} % For better formatting of table notes
+%\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{threeparttablex}
+\usepackage{dcolumn}
+
+\newcommand{\sym}[1]{\rlap{#1}}% Thanks to David Carlisle
+
+\let\estinput=\input% define a new input command so that we can still flatten the document
+
+\newcommand{\estwide}[3]{
+		\vspace{.75ex}{
+			\begin{tabular*}
+			{\textwidth}{@{\hskip\tabcolsep\extracolsep\fill}l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular*}
+			}
+		}	
+
+\newcommand{\estauto}[3]{
+		\vspace{.75ex}{
+			\begin{tabular}{l*{#2}{#3}}
+			\toprule
+			\estinput{#1}
+			\bottomrule
+			\addlinespace[.75ex]
+			\end{tabular}
+			}
+		}
+
+% Allow line breaks with \\ in specialcells
+	\newcommand{\specialcell}[2][c]{%
+	\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\newcommand{\figtext}[1]{
+	\vspace{-1.9ex}
+	\captionsetup{justification=justified,font=footnotesize}
+	\caption*{\hspace{6pt}\hangindent=1.5em #1}
+	}
+\newcommand{\fignote}[1]{\figtext{\emph{Note:~}~#1}}
+
+\newcommand{\figsource}[1]{\figtext{\emph{Source:~}~#1}}
+
+% Add significance note with \starnote
+\newcommand{\starnote}{\figtext{* p < 0.1, ** p < 0.05, *** p < 0.01. Standard errors in parentheses.}}
+
+\usepackage{siunitx} % centering in tables
+	\sisetup{
+		detect-mode,
+		tight-spacing	        	  = true,
+		group-digits	        	  = false ,
+		input-signs		              = ,
+		input-symbols	 	        = ( ) [ ] - + *,
+		input-open-uncertainty	= ,
+		input-close-uncertainty	 = ,
+		table-align-text-post	  = false
+        }
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+\definecolor{olivegreen}{cmyk}{0.28,0,0.5,0.68}
+\usepackage{listings}
+\lstset{language=R,
+    basicstyle=\small\ttfamily,
+    stringstyle=\color{olivegreen},
+    %otherkeywords={0,1,2,3,4,5,6,7,8,9},
+    morekeywords={TRUE,FALSE,fminbnd,optim,optimize,fzero},
+    deletekeywords={data,frame,length,as,character},
+    keywordstyle=\color{blue},
+    commentstyle=\color{olivegreen},
+}
+
+\author{Yujung G. Hwang} % Your name
+\date{\today} % Today's date or a custom date
+
+\begin{document}
+
+\title{	
+\normalfont \normalsize 
+\huge Problem Set 2
+}
+\author{
+Instructor : Yujung Hwang \thanks{\texttt{yujungghwang@gmail.com}}} % Your name
+\date{\today} % Today's date or a custom date
+\maketitle % Print the title
+
+\begin{center}
+DUE DATE : 2020.9.17 time 11pm \\
+submit your solution and code files on Blackboard
+\end{center}
+
+\upshape \mdseries 
+\normalsize
+
+\textbf{Question 1. discretizing the AR(1) income process} \\
+Using the parameters below, discretize the income grid and compute the numerical approximation of transition probability matrix. Every year, an agent receives an income flow $y_t$. The log of $y_t$ follows an AR (1) process with mean zero and an autocorrelation $\rho$. 
+\begin{gather}
+log y_{t} = \rho log y_{t-1} + \nu_t, \quad \nu_t \sim N(0, \sigma_{\nu}^2)
+\end{gather}
+\begin{table}[H]
+\centering
+\begin{tabular}{c l c}
+\hline
+Parameter & Description & Value \\
+\hline
+$N_y$ & number of Income Grid & 5 \\
+$\rho$ & AR(1) process coefficient & 0.75 \\
+$\sigma_{\nu}$ & SD of shock & 0.25 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{0.2in}
+\textbf{Question 2. cake-eating problem with uncertain income} \\
+In this question, you are asked to solve for the policy function (consumption plan) $c_t(a_t)$ for the cake-eating problem with income uncertainty using various solution methods. You should use the discretized income process in Question 1. Borrowing/saving is ALLOWED. \\
+The flow utility function is CRRA.
+\begin{gather}
+u(c) = \frac{c^{1-\gamma}}{(1-\gamma)}
+\end{gather}
+The structural parameter values are as follows : \\
+\begin{table}[H]
+\centering
+\begin{tabular}{c l c}
+\hline
+Parameter & Description & Value \\
+\hline
+$T$ & Lifetime & 40 \\
+$r$ & interest rate & 0.03 \\
+$\beta$ & time discount & 0.95 \\
+$\gamma$ & CRRA parameter & 1.5 \\
+$a_0$ & initial asset & 0 \\
+$\underline{c}$ & minimum consumption & $10^-5$ \\
+\hline
+\end{tabular}
+\end{table}
+When you set an asset grid, use age-specific grid and use an unequal grid point generated from log transformation and use the $N_A=20$ gridpoints. \\
+When you need to interpolate any function, use "linear" interpolation.\\
+(a) Compute $c_t(a_t)$ using value function. \\
+(b) Compute $c_t(a_t)$ using Euler equation without linear transformation of marginal utility function. \\
+(c) Compute $c_t(a_t)$ using Euler equation with linear transformation of marginal utility function. \\
+
+Show in one graph the solution (a) - (c) for age t = 20 and the highest income and the lowest income. Discuss the differences. \\
+
+
+
+\vspace{0.2in}
+\textbf{Question 3. computing simulated moments on consumption and asset} \\
+Using the policy function solution (c) computed in Question 2, simulate the consumption decision for 100 individuals and plot the mean asset and mean consumption over the life-cycle. Comment on the mean asset and the mean consumption path using the relative size of $\beta$ and r. \\
+\color{red} Remember to set seed for your code. Otherwise, your result will not be replicable.\\
+
+
+\end{document}

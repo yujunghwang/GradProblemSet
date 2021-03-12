@@ -1,7 +1,6 @@
 # Problem Set 8
 # written by Yujung Hwang
 # building on a code provided by Andrew Shephard
-
 rm(list=ls())
 
 # set the right directory
